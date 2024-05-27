@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    double x, y;
+    double result;
+
+    printf("Введіть значення x: ");
+    scanf("%lf", &x);
+    
+    printf("Введіть значення y: ");
+    scanf("%lf", &y);
+
+    if (y + 2 == 0) {
+        printf("Помилка: знаменник дорівнює нулю.\n");
+        return 1; 
+    }
+
+    result = pow(x, 2) + (2 * x - 10) / (y + 2);
+
+    printf("Результат: %lf\n", result);
+
+    return 0;
+}
