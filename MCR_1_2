@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main() {
+    double x, y, a;
+
+    printf("Введіть значення x: ");
+    scanf("%lf", &x);
+
+    printf("Введіть значення y: ");
+    scanf("%lf", &y);
+
+    printf("Введіть значення a: ");
+    scanf("%lf", &a);
+
+    if ((x < y && a >= x && a <= y) || (x > y && a >= y && a <= x)) {
+        printf("Значення %lf попадає в інтервал [%lf, %lf].\n", a, x, y);
+    } else {
+        printf("Значення %lf не попадає в інтервал [%lf, %lf].\n", a, x, y);
+    }
+
+    return 0;
+}
+
