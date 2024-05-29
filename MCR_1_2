@@ -2,22 +2,44 @@
 
 int main() {
     double x, y, a;
+    int choice;
 
-    printf("Введіть значення x: ");
-    scanf("%lf", &x);
+    do {
+        printf("Введіть значення x: ");
+        if (scanf("%lf", &x) != 1) {
+            printf("Помилка: введено нечислове значення для x.\n");
+            while (getchar() != '\n');
+            continue;
+        }
 
-    printf("Введіть значення y: ");
-    scanf("%lf", &y);
+        printf("Введіть значення y: ");
+        if (scanf("%lf", &y) != 1) {
+            printf("Помилка: введено нечислове значення для y.\n");
+            while (getchar() != '\n');
+            continue;
+        }
 
-    printf("Введіть значення a: ");
-    scanf("%lf", &a);
+        printf("Введіть значення a: ");
+        if (scanf("%lf", &a) != 1) {
+            printf("Помилка: введено нечислове значення для a.\n");
+            while (getchar() != '\n');
+            continue;
+        }
 
-    if ((x < y && a >= x && a <= y) || (x > y && a >= y && a <= x)) {
-        printf("Значення %lf попадає в інтервал [%lf, %lf].\n", a, x, y);
-    } else {
-        printf("Значення %lf не попадає в інтервал [%lf, %lf].\n", a, x, y);
-    }
+        if ((x < y && a >= x && a <= y) || (x > y && a >= y && a <= x)) {
+            printf("Значення %lf попадає в інтервал [%lf, %lf].\n", a, x, y);
+        } else {
+            printf("Значення %lf не попадає в інтервал [%lf, %lf].\n", a, x, y);
+        }
+
+        printf("Натисніть 1 щоб запустити програму спочатку або 0 щоб завершити програму: ");
+        if (scanf("%d", &choice) != 1) {
+            printf("Помилка: введено нечислове значення.\n");
+            while (getchar() != '\n');
+            choice = 1;
+        }
+
+    } while (choice != 0);
 
     return 0;
 }
-
