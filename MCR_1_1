@@ -4,21 +4,40 @@
 int main() {
     double x, y;
     double result;
+    int choice;
 
-    printf("Введіть значення x: ");
-    scanf("%lf", &x);
-    
-    printf("Введіть значення y: ");
-    scanf("%lf", &y);
+    do {
+        printf("Введіть значення x: ");
+        if (scanf("%lf", &x) != 1) {
+            printf("Помилка: введено нечислове значення для x.\n");
+            while (getchar() != '\n');
+            continue;
+        }
 
-    if (y + 2 == 0) {
-        printf("Помилка: знаменник дорівнює нулю.\n");
-        return 1; 
-    }
+        printf("Введіть значення y: ");
+        if (scanf("%lf", &y) != 1) {
+            printf("Помилка: введено нечислове значення для y.\n");
+            while (getchar() != '\n');
+            continue;
+        }
 
-    result = pow(x, 2) + (2 * x - 10) / (y + 2);
+        if (y + 2 == 0) {
+            printf("Помилка: знаменник дорівнює нулю.\n");
+            continue; 
+        }
 
-    printf("Результат: %lf\n", result);
+        result = pow(x, 2) + (2 * x - 10) / (y + 2);
+
+        printf("Результат: %lf\n", result);
+
+        printf("Натисніть 1 щоб запустити програму спочатку або 0 щоб завершити програму: ");
+        if (scanf("%d", &choice) != 1) {
+            printf("Помилка: введено нечислове значення.\n");
+            while (getchar() != '\n');
+            choice = 1;
+        }
+
+    } while (choice != 0);
 
     return 0;
 }
